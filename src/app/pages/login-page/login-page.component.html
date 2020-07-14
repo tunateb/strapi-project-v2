@@ -1,0 +1,31 @@
+<div class="flex-container">
+  <div class="card">
+    <form class="form" (submit)="login()">
+      <div class="form-control">
+        <label for="identifier">Username / Email</label>
+        <input
+          type="text"
+          name="identifier"
+          id="identifier"
+          class="form-input"
+          [(ngModel)]="loginForm.identifier"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-input"
+          [(ngModel)]="loginForm.password"
+        />
+      </div>
+
+      <div class="form-actions">
+        <button class="btn" type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+</div>
