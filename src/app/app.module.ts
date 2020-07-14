@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, LoginPageComponent, SignupPageComponent],
+  declarations: [AppComponent, NavbarComponent, LoginPageComponent, SignupPageComponent, HomepageComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
