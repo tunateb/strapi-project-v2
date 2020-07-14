@@ -9,6 +9,6 @@ export class PostService {
   constructor(private http: HttpClient) {}
 
   fetchPosts() {
-    return this.http.get(`${env.postsApiURL}`);
+    return this.http.get(`${env.postsApiURL}?_sort=created_at:DESC`);
   }
 }
