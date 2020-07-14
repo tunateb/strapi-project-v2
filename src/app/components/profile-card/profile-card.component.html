@@ -1,0 +1,49 @@
+<div class="grid-container" *ngIf="user">
+  <div class="card-colored">
+    <div class="profile-wrapper">
+      <div class="profile-img-wrapper">
+        <img [src]="user.profileImgUrl" alt="avatar" class="avatar-lg" />
+        <h1>{{ user.profileName ? user.profileName : user.username }}</h1>
+      </div>
+
+      <div class="profile-details-wrapper">
+        <ul class="profile-details">
+          <li class="profile-details-item">
+            <div class="details-header">
+              <p class="header">Bio</p>
+            </div>
+            <div class="details-info">
+              <p class="detail-text">{{ user.userBio ? user.userBio : '*Edit profile to create this section*' }}</p>
+            </div>
+          </li>
+
+          <li class="profile-details-item">
+            <div class="details-header">
+              <p class="header">Phone</p>
+            </div>
+            <div class="details-info">
+              <p class="detail-text">{{ user.userPhone ? user.userPhone : '*Edit profile to create this section*'}}</p>
+            </div>
+          </li>
+
+          <li class="profile-details-item">
+            <div class="details-header">
+              <p class="header">Location</p>
+            </div>
+            <div class="details-info">
+              <p class="detail-text">{{ user.userLocation ? user.userLocation : '*Edit profile to create this section*'}}</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="profile-actions">
+          <button class="btn-light">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-colored">
+    POSTS
+  </div>
+</div>

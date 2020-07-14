@@ -1,1 +1,58 @@
-<p>signup-page works!</p>
+<div class="container">
+  <div class="card-colored">
+    <form class="form" (submit)="signup()">
+      <div class="form-control">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="form-input"
+          [(ngModel)]="signupForm.username"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="form-input"
+          [(ngModel)]="signupForm.email"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-input"
+          [(ngModel)]="signupForm.password"
+        />
+      </div>
+
+      <div class="form-control">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          class="form-input"
+          [(ngModel)]="signupForm.confirmPassword"
+        />
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-light" type="submit">Create Account</button>
+      </div>
+
+      <small
+        >* By clicking Create Account, you aggree to our Terms &
+        Conditions.</small
+      >
+    </form>
+  </div>
+</div>

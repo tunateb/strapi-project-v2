@@ -1,5 +1,5 @@
-<div class="flex-container">
-  <div class="card">
+<div class="container">
+  <div class="card-colored">
     <form class="form" (submit)="login()">
       <div class="form-control">
         <label for="identifier">Username / Email</label>
@@ -24,7 +24,9 @@
       </div>
 
       <div class="form-actions">
-        <button class="btn" type="submit">Login</button>
+        <button class="btn-light" type="submit" [disabled]="isLoading">
+          {{ isLoading ? "Logging In" : "Login" }}
+        </button>
       </div>
     </form>
   </div>

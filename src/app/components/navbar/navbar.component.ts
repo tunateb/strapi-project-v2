@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/types/user.type';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,16 +9,18 @@ import { User } from 'src/app/types/user.type';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  @Input() user: User;
-  
   constructor(
-    
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {}
 
   logout() {
-    this.authService.logout()
+    this.authService.logout();
+  }
+
+  get user() {
+    return this.userService.getUser();
   }
 }

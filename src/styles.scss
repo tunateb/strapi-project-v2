@@ -16,7 +16,7 @@ hr {
   margin: 10px 0;
 }
 
-.flex-container {
+.container {
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -25,11 +25,21 @@ hr {
 }
 
 .card {
-  width: 400px;
+  width: 600px;
   margin: 50px 0;
   border-radius: 4px;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
   padding: 0 20px;
+}
+
+.card-colored {
+  width: 600px;
+  margin: 20px 0;
+  border-radius: 6px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+  background-color: #34495e;
+  color: #fff;
 }
 
 .form {
@@ -45,7 +55,7 @@ hr {
     label {
       font-size: 14px;
       font-weight: 300;
-      color: #8a98a4;
+      color: #9cacb9;
     }
 
     .form-input {
@@ -53,15 +63,11 @@ hr {
       width: 100%;
       padding: 10px 0;
       border: none;
-      border-bottom: 1px solid #8a98a4;
+      border-bottom: 1px solid #9cacb9;
       background-color: transparent;
       outline: none;
       font-size: 18px;
-      transition: 100ms ease-in-out;
-
-      &:focus {
-        background-color: lighten(#34495e, 60%);
-      }
+      color: #fff;
     }
   }
 
@@ -87,10 +93,37 @@ hr {
   }
 }
 
+.btn-light {
+  padding: 10px 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #587ca0;
+  color: #fff;
+  border-radius: 100px;
+  margin: 20px auto;
+  font-size: 16px;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    background-color: darken(#587ca0, 10%);
+    color: #fff;
+  }
+}
+
 .avatar {
   border-radius: 50%;
   width: 40px;
   height: 40px;
+  margin-right: 10px;
+  border: 2px solid #fff;
+  object-fit: contain;
+}
+
+.avatar-lg {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
   margin-right: 10px;
   border: 2px solid #fff;
   object-fit: contain;

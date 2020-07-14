@@ -1,0 +1,40 @@
+<div class="card-colored">
+  <a [routerLink]="'/posts/' + post.id" class="card-link"
+    ><div class="post">
+      <div class="post-head">
+        <img
+          [src]="'http://localhost:1337' + post.user.avatar.url"
+          alt="avatar"
+          class="avatar"
+          *ngIf="post.user.avatar; else noAvatar"
+        />
+        <ng-template #noAvatar
+          ><img
+            src="../../../assets/avatar-placeholder.png"
+            alt="avatar"
+            class="avatar"
+        /></ng-template>
+        <h3 class="post-username">
+          {{
+            post.user.profileName ? post.user.profileName : post.user.username
+          }}
+        </h3>
+      </div>
+      <div class="post-details">
+        <p class="post-text">{{ post.postText }}</p>
+      </div>
+    </div>
+  </a>
+
+  <div class="post-footer">
+    <div class="post-actions">
+      <a href="#" class="post-action"><fa-icon [icon]="faComment"></fa-icon></a>
+      <span class="post-action-count"> {{ post.postCommentCount }} </span>
+      <a href="#" class="post-action"><fa-icon [icon]="faHeart"></fa-icon></a>
+      <span class="post-action-count"> {{ post.postLikeCount }} </span>
+    </div>
+    <div class="post-time">
+      <p>{{ post.created_at | date: "dd/MM/yyyy" }}</p>
+    </div>
+  </div>
+</div>

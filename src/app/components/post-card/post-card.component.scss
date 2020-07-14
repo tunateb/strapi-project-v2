@@ -1,0 +1,43 @@
+.card-colored {
+  height: 200px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.post-head {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.post-details {
+  padding: 10px 0;
+
+  .post-text {
+    font-size: 18px;
+    padding: 5px 0;
+    min-height: 80px;
+    border-bottom: 1px solid #545d66;
+  }
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .post-action {
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+
+  .post-time {
+    text-align: right;
+    font-size: 14px;
+  }
+}

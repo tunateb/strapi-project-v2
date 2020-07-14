@@ -6,6 +6,6 @@ export const environment = {
   commentsApiURL: `${baseURL}/comments`,
   usersApiURL: `${baseURL}/users`,
   authApiURL: `${baseURL}/auth`,
-  tweetsApiURL: `${baseURL}/tweets`,
+  postsApiURL: `${baseURL}/posts`,
   uploadApiURL: `${baseURL}/upload`,
 };

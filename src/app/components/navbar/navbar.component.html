@@ -6,16 +6,40 @@
   </div>
 
   <div class="nav-menu" *ngIf="user">
-    <img [src]="user.profileImgUrl" alt="avatar" class="avatar" />
-    <h3>Welcome , {{ user.username }}</h3>
+    <img
+      [src]="user.profileImgUrl"
+      alt="avatar"
+      class="avatar"
+      *ngIf="user.profileImgUrl"
+    />
+    <h3>Welcome , {{ user.profileName ? user.profileName : user.username }}</h3>
   </div>
 
-  <div class="nav-item">
-    <a routerLink="/login" class="nav-link" *ngIf="!user">
-      Login
-    </a>
-    <a href="#" class="nav-link" *ngIf="user" (click)="logout()">
-      Logout
-    </a>
+  <div class="nav-menu" *ngIf="user; else navMenu">
+    <div class="nav-item">
+      <a routerLink="/profile" class="nav-link">
+        Profile
+      </a>
+    </div>
+    <div class="nav-item">
+      <a href="#" class="nav-link" (click)="logout()">
+        Logout
+      </a>
+    </div>
   </div>
+
+  <ng-template #navMenu>
+    <div class="nav-menu">
+      <div class="nav-item">
+        <a routerLink="/signup" class="nav-link">
+          Sign Up
+        </a>
+      </div>
+      <div class="nav-item">
+        <a routerLink="/login" class="nav-link">
+          Login
+        </a>
+      </div>
+    </div>
+  </ng-template>
 </nav>

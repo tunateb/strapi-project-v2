@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/types/post.type';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  posts: Post[];
+
+  constructor(private postService:PostService) { }
 
   ngOnInit(): void {
+    this.postService.fetchPosts().subscribe((response: Post[]) => {
+      console.log(response);
+      this.posts = response
+    })
   }
 
 }

@@ -10,4 +10,14 @@ export type User = {
   username: string;
   profileImgUrl?: string;
   profileImg?: any;
+  profileName: string;
+  userBio?: string;
+  userPhone: string;
+  userLocation: string;
+  avatar: {
+    id: number;
+    name: string;
+    url: string;
+  }
+  
 };

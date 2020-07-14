@@ -18,6 +18,10 @@ export class AuthService {
     this.userService.setUser();
   }
 
+  signup(signupData) {
+    return this.http.post(`${env.authApiURL}/local/register`, signupData);
+  }
+
   setToken(token: string) {
     window.localStorage.setItem('token', token);
   }
