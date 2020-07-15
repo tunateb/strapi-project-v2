@@ -1,0 +1,33 @@
+<div class="card-colored">
+  <form class="form" (submit) = "submitPost()">
+    <div class="form-content">
+      <div class="avatar-wrapper">
+        <img [src]="user.profileImgUrl" alt="avatar" class="avatar" />
+      </div>
+
+      <div class="form-control">
+        <label for="post">
+          <textarea
+            name="post"
+            id="post"
+            cols="100"
+            rows="5"
+            class="form-input"
+            placeholder="Post something..."
+            [(ngModel)] = "form.postText"
+          ></textarea>
+        </label>
+      </div>
+    </div>
+    <div class="form-actions">
+      <div class="form-actions-wicon">
+        <a href="#" class="form-action"
+          ><fa-icon [icon]="faImages"></fa-icon
+        ></a>
+        <a href="#" class="form-action"><fa-icon [icon]="faSmile"></fa-icon></a>
+      </div>
+
+      <button class="btn-light" type="submit">Post</button>
+    </div>
+  </form>
+</div>

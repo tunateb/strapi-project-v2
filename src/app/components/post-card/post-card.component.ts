@@ -3,6 +3,7 @@ import { Post } from 'src/app/types/post.type';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import { PostService } from 'src/app/services/post.service';
+import { User } from 'src/app/types/user.type';
 
 @Component({
   selector: 'app-post-card',
@@ -11,6 +12,8 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostCardComponent implements OnInit {
   @Input() post: Post;
+  @Input() user: User;
+
   faHeart = faHeart;
   faComment = faComment;
 

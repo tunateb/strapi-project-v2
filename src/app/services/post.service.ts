@@ -9,6 +9,14 @@ import { Post } from '../types/post.type';
 export class PostService {
   private posts: Post[];
 
+  token = window.localStorage.getItem('token');
+
+  httpOptions = {
+    headers: {
+      Authorization: `Bearer ${this.token}`,
+    },
+  };
+
   constructor(private http: HttpClient) {}
 
   fetchPosts() {
@@ -23,14 +31,21 @@ export class PostService {
     return this.posts;
   }
 
-  updatePost(updatedPost: Post) {
-    const token = window.localStorage.getItem('token');
+  sendPost(postData: object) {
     this.http
-      .put(`${env.postsApiURL}/${updatedPost.id}`, updatedPost, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .post(`${env.postsApiURL}`, postData, this.httpOptions)
+      .subscribe((response) => {
+        this.fetchPosts()
+      });
+  }
+
+  updatePost(updatedPost: Post) {
+    this.http
+      .put(
+        `${env.postsApiURL}/${updatedPost.id}`,
+        updatedPost,
+        this.httpOptions
+      )
       .subscribe((response) => null);
   }
 

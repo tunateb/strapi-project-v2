@@ -37,19 +37,35 @@
   </a>
 
   <div class="post-footer">
-    <div class="post-actions">
+
+    <div class="post-actions" *ngIf="user; else guestView">
       <a href="#" class="post-action"><fa-icon [icon]="faComment"></fa-icon></a>
-      <span class="post-action-count"> {{ post.postCommentCount }} </span>
+      <span class="post-action-count"> {{ post.postCommentCount || 0 }} </span>
 
-      <a href="#" class="post-action" (click)="likePost(post.id)" *ngIf = "!isPostLiked; else likedIcon"><fa-icon [icon]="faHeart"></fa-icon></a>
+      <a
+        href="#"
+        class="post-action"
+        (click)="likePost(post.id)"
+        *ngIf="!isPostLiked; else likedIcon"
+        ><fa-icon [icon]="faHeart"></fa-icon
+      ></a>
       <ng-template #likedIcon>
-        <a href="#" class="liked-post-icon" (click)="unlikePost(post.id)"><fa-icon [icon]="faHeart"></fa-icon></a>
+        <a href="#" class="liked-post-icon" (click)="unlikePost(post.id)"
+          ><fa-icon [icon]="faHeart"></fa-icon
+        ></a>
       </ng-template>
-      <span class="post-action-count"> {{ post.postLikeCount }} </span>
-
+      <span class="post-action-count"> {{ post.postLikeCount || 0 }} </span>
     </div>
+
+    <ng-template #guestView>
+      <div class="post-actions">
+        <span class="post-action-count"> {{ post.postCommentCount || 0 }} Comments |</span>
+        <span class="post-action-count"> {{ post.postLikeCount || 0}} Likes</span>
+      </div>
+    </ng-template>
+
     <div class="post-time">
-      <p>{{ post.created_at | date: "dd/MM/yyyy" }}</p>
+      <p>{{ post.created_at | date: "dd/MM/yyyy , hh:mm" }}</p>
     </div>
   </div>
 </div>

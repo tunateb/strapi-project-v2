@@ -1,7 +1,8 @@
 <div class="container">
   <div class="grid-container">
+    <app-post-form *ngIf = "user"></app-post-form>
     <div *ngFor="let post of posts">
-      <app-post-card [post]="post"></app-post-card>
+      <app-post-card [post]="post" [user] = "user"></app-post-card>
     </div>
   </div>
 </div>
