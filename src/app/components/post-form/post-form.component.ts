@@ -16,6 +16,8 @@ export class PostFormComponent implements OnInit {
     postText: '',
   };
 
+  isLoading = false;
+
   constructor(
     private userService: UserService,
     private postService: PostService
@@ -30,11 +32,19 @@ export class PostFormComponent implements OnInit {
   }
 
   submitPost() {
+    this.isLoading = true;
+
     const postData = {
       postText: this.form.postText,
       user: this.user,
     };
 
     this.postService.sendPost(postData);
+
+    this.isLoading = false;
+
+    this.form = {
+      postText: '',
+    };
   }
 }

@@ -1,5 +1,5 @@
 <div class="card-colored">
-  <form class="form" (submit) = "submitPost()">
+  <form class="form" (submit)="submitPost()">
     <div class="form-content">
       <div class="avatar-wrapper">
         <img [src]="user.profileImgUrl" alt="avatar" class="avatar" />
@@ -14,7 +14,7 @@
             rows="5"
             class="form-input"
             placeholder="Post something..."
-            [(ngModel)] = "form.postText"
+            [(ngModel)]="form.postText"
           ></textarea>
         </label>
       </div>
@@ -27,7 +27,9 @@
         <a href="#" class="form-action"><fa-icon [icon]="faSmile"></fa-icon></a>
       </div>
 
-      <button class="btn-light" type="submit">Post</button>
+      <button class="btn-light" type="submit" [disabled]="isLoading">
+        {{ isLoading ? "Posting" : "Post" }}
+      </button>
     </div>
   </form>
 </div>

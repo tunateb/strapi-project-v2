@@ -7,12 +7,16 @@
       display: flex;
       justify-content: center;
 
+      .avatar-wrapper {
+        padding: 10px 0;
+      }
+
       .form-control {
         margin: 0;
 
         .form-input {
           resize: none;
-          padding: 0;
+          padding: 10px;
         }
       }
     }
