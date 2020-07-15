@@ -7,7 +7,7 @@ import { environment as env } from '../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  user: User;
+  private user: User;
 
   token = window.localStorage.getItem('token');
 

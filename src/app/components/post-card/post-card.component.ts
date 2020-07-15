@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from 'src/app/types/post.type';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faComment} from '@fortawesome/free-solid-svg-icons';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-post-card',
@@ -10,11 +11,22 @@ import { faComment} from '@fortawesome/free-solid-svg-icons';
 })
 export class PostCardComponent implements OnInit {
   @Input() post: Post;
-
   faHeart = faHeart;
   faComment = faComment;
 
-  constructor() {}
+  isPostLiked: boolean = false;
+
+  constructor(private postService: PostService) {}
 
   ngOnInit(): void {}
+
+  likePost(postId: number) {
+    this.postService.likePost(postId);
+    this.isPostLiked = true;
+  }
+
+  unlikePost(postId: number) {
+    this.postService.unlikePost(postId);
+    this.isPostLiked = false;
+  }
 }
