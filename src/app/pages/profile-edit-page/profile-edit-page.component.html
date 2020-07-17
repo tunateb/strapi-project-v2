@@ -2,12 +2,53 @@
   <div class="card-colored-lg" *ngIf="user">
     <div class="profile-wrapper">
       <div class="profile-img-wrapper">
-        <img [src]="user.profileImgUrl" alt="avatar" class="avatar-lg" />
+        <img
+          [src]="fileURL || user.profileImgUrl"
+          alt="avatar"
+          class="avatar-lg"
+        />
+        <div>
+          <input
+            type="file"
+            class="file-input"
+            #fileInput
+            (change)="selectFile($event)"
+          />
+          <button class="btn-light" (click)="fileInput.click()">
+            Select Image
+          </button>
+          <button
+            class="btn-light"
+            *ngIf="selectedFile"
+            (click)="saveImg()"
+            [disabled]="isLoading"
+          >
+            {{
+              isImgLoading
+                ? "Uploading"
+                : !isImgLoading && !imgChangesSaved
+                ? "Upload"
+                : "Uploaded!"
+            }}
+          </button>
+        </div>
         <h1>{{ user.profileName ? user.profileName : user.username }}</h1>
       </div>
 
       <div class="edit-form-wrapper">
-        <form class="form" (submit) = "saveChanges()">
+        <form class="form" (submit)="saveChanges()">
+          <div class="form-control">
+            <label for="profile-name">Profile Name</label>
+            <input
+              type="text"
+              class="form-input"
+              name="profile-name"
+              id="profile-name"
+              [placeholder]="user.profileName ? user.profileName : ''"
+              [(ngModel)]="editForm.profileName"
+            />
+          </div>
+
           <div class="form-control">
             <label for="bio">Bio</label>
             <input
@@ -16,7 +57,7 @@
               name="bio"
               id="bio"
               [placeholder]="user.userBio ? user.userBio : ''"
-              [(ngModel)] = "editForm.bio"
+              [(ngModel)]="editForm.bio"
             />
           </div>
 
@@ -28,7 +69,7 @@
               name="phone"
               id="phone"
               [placeholder]="user.userPhone ? user.userPhone : ''"
-              [(ngModel)] = "editForm.phone"
+              [(ngModel)]="editForm.phone"
             />
           </div>
 
@@ -40,12 +81,20 @@
               name="location"
               id="location"
               [placeholder]="user.userLocation ? user.userLocation : ''"
-              [(ngModel)] = "editForm.location"
+              [(ngModel)]="editForm.location"
             />
           </div>
 
           <div class="form-actions">
-              <button class="btn-light" [disabled] = "isLoading">{{ isLoading ? 'Saving Changes' : !isLoading && !changesSaved  ? 'Save Changes' : 'Saved!' }}</button>
+            <button class="btn-light" [disabled]="isLoading">
+              {{
+                isLoading
+                  ? "Saving Changes"
+                  : !isLoading && !changesSaved
+                  ? "Save Changes"
+                  : "Saved!"
+              }}
+            </button>
           </div>
         </form>
       </div>

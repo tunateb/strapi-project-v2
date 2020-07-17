@@ -14,10 +14,6 @@ export type User = {
   userBio?: string;
   userPhone: string;
   userLocation: string;
-  avatar: {
-    id: number;
-    name: string;
-    url: string;
-  }
+  avatar?: any;
   
 };

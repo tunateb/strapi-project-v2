@@ -51,11 +51,19 @@ export class UserService {
       });
   }
 
-  updateUser(updatedUser: User) {
+  updateUser(updatedUser) {
    return this.http.put(
       `${env.usersApiURL}/${updatedUser.id}`,
       updatedUser,
       this.httpOptions
     );
+  }
+
+  saveImg(file) {
+    const form = new FormData();
+
+    form.append('files', file);
+
+    return this.http.post(env.uploadApiURL, form, this.httpOptions)
   }
 }
