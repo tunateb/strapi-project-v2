@@ -5,13 +5,15 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { PostDetailPageComponent } from './pages/post-detail-page/post-detail-page.component';
+import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'signup', component: SignupPageComponent },
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'user/:id', component: ProfilePageComponent },
   { path: 'posts/:id', component: PostDetailPageComponent },
+  { path: 'user/:id/edit', component: ProfileEditPageComponent },
 ];
 
 @NgModule({

@@ -54,7 +54,9 @@
       </ul>
 
       <div class="profile-actions">
-        <button class="btn-light">Edit Profile</button>
+        <a [routerLink]="'/user/' + user.id + '/edit' "
+          ><button class="btn-light">Edit Profile</button></a
+        >
       </div>
     </div>
   </div>

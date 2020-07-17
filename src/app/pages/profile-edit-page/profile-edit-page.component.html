@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="card-colored-lg" *ngIf="user">
+    <div class="profile-wrapper">
+      <div class="profile-img-wrapper">
+        <img [src]="user.profileImgUrl" alt="avatar" class="avatar-lg" />
+        <h1>{{ user.profileName ? user.profileName : user.username }}</h1>
+      </div>
+
+      <div class="edit-form-wrapper">
+        <form class="form" (submit) = "saveChanges()">
+          <div class="form-control">
+            <label for="bio">Bio</label>
+            <input
+              type="text"
+              class="form-input"
+              name="bio"
+              id="bio"
+              [placeholder]="user.userBio ? user.userBio : ''"
+              [(ngModel)] = "editForm.bio"
+            />
+          </div>
+
+          <div class="form-control">
+            <label for="phone">Phone</label>
+            <input
+              type="text"
+              class="form-input"
+              name="phone"
+              id="phone"
+              [placeholder]="user.userPhone ? user.userPhone : ''"
+              [(ngModel)] = "editForm.phone"
+            />
+          </div>
+
+          <div class="form-control">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              class="form-input"
+              name="location"
+              id="location"
+              [placeholder]="user.userLocation ? user.userLocation : ''"
+              [(ngModel)] = "editForm.location"
+            />
+          </div>
+
+          <div class="form-actions">
+              <button class="btn-light" [disabled] = "isLoading">{{ isLoading ? 'Saving Changes' : !isLoading && !changesSaved  ? 'Save Changes' : 'Saved!' }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

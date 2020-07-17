@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { User } from 'src/app/types/user.type';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,9 +8,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+
   constructor(
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {}

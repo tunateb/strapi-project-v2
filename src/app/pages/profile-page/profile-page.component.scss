@@ -1,5 +1,11 @@
 .grid-container {
   display: grid;
   grid-template-columns: 6fr 6fr;
-  grid-gap: 40px;
+  grid-gap: 20px;
+}
+
+.post-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

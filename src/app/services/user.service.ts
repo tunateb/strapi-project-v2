@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../types/user.type';
 import { environment as env } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class UserService {
     headers: { Authorization: `Bearer ${this.token}` },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   setUser(user: User = null) {
     this.user = user;
@@ -48,5 +49,13 @@ export class UserService {
           this.user.profileImgUrl = 'assets/avatar-placeholder.png';
         }
       });
+  }
+
+  updateUser(updatedUser: User) {
+   return this.http.put(
+      `${env.usersApiURL}/${updatedUser.id}`,
+      updatedUser,
+      this.httpOptions
+    );
   }
 }

@@ -1,8 +1,10 @@
 <div class="container">
   <div class="grid-container">
     <app-profile-card></app-profile-card>
-    <div class="card-colored">
-      POSTS
+    <div class="card-colored-lg">
+      <div *ngFor="let post of userPosts" class="post-card-wrapper">
+        <app-post-card [user]="user" [post]="post"></app-post-card>
+      </div>
     </div>
   </div>
 </div>

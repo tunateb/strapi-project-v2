@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment as env } from '../../environments/environment';
 import { Post } from '../types/post.type';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  private posts: Post[];
+  posts: Post[];
 
   token = window.localStorage.getItem('token');
 
@@ -17,7 +18,7 @@ export class PostService {
     },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   fetchPosts() {
     return this.http
@@ -25,6 +26,10 @@ export class PostService {
       .subscribe((response: Post[]) => {
         this.posts = response;
       });
+  }
+
+  getUserPosts(userId:number) {
+    return this.posts.filter((post) => post.user.id === userId);
   }
 
   getPosts(): Post[] {
@@ -35,7 +40,7 @@ export class PostService {
     this.http
       .post(`${env.postsApiURL}`, postData, this.httpOptions)
       .subscribe((response) => {
-        this.fetchPosts()
+        this.fetchPosts();
       });
   }
 

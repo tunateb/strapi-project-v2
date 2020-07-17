@@ -15,6 +15,8 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
 import { PostCardComponent } from './components/post-card/post-card.component';
 import { PostDetailPageComponent } from './pages/post-detail-page/post-detail-page.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { PostFormComponent } from './components/post-form/post-form.component';
     PostCardComponent,
     PostDetailPageComponent,
     PostFormComponent,
+    ProfileEditPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, FontAwesomeModule],
   providers: [],
